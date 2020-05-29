@@ -15,6 +15,19 @@ NS_ASSUME_NONNULL_BEGIN
 /// type 1白色  2黄色
 -(void)setText:(NSString *)text andColor:(NSInteger )type;
 
+
+@property (nonatomic, strong)NSArray *dataArr;
+
+@property (nonatomic, assign)BOOL isMirror;
+
+/// 显示结束 block
+@property (nonatomic, copy)void (^showEndBlock) (void);
+
+
+/// 开始显示  设置时间
+- (void)showWithSpace:(float)space andAnmintTime:(float)time;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

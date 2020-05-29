@@ -38,7 +38,8 @@
 
 -(void)setText:(NSString *)text withWordSpacing:(float)spacing {
     
-    self.font = [UIFont boldSystemFontOfSize:70];
+    self.font = [UIFont boldSystemFontOfSize:100];
+    
     self.textAlignment = 1;
     if (!text) {
         text = @"";
@@ -55,7 +56,9 @@
                           
                           };
     NSMutableAttributedString * attributedString =     [[NSMutableAttributedString alloc] initWithString:text attributes:dic];
-    
+    [attributedString addAttribute:NSForegroundColorAttributeName
+                               value:[UIColor whiteColor]
+                               range:NSMakeRange(0, text.length)];//设置颜色
     [self setAttributedText:attributedString];
 }
 

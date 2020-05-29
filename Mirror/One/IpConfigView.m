@@ -44,6 +44,15 @@
     self.listIP.delegate = self;
     self.audienceIP.delegate = self;
     
+    self.mainIP.text
+    = [[NSUserDefaults standardUserDefaults]objectForKey:@"IP"];
+    
+    self.deviceID.text
+    = [[NSUserDefaults standardUserDefaults]objectForKey:@"ID"];
+    
+    self.listIP.text
+    = [[NSUserDefaults standardUserDefaults]objectForKey:@"LISTIP"];
+    
     
 }
 
@@ -81,6 +90,12 @@
     
     self.connectBlock ? self.connectBlock(IDStr, mainIPStr, listIPStr, audienceIPStr, type) : nil;
   
+    [[NSUserDefaults standardUserDefaults]setObject:IDStr forKey:@"ID"];
+    
+    [[NSUserDefaults standardUserDefaults]setObject:mainIPStr forKey:@"IP"];
+    
+    [[NSUserDefaults standardUserDefaults]setObject:listIPStr forKey:@"LISTIP"];
+    
 }
 
 

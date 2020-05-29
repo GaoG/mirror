@@ -8,13 +8,21 @@
 
 #import "ShowNumberView.h"
 #import "UILabel+WordSpacing.h"
+#import "SNTimer.h"
+#import "UILabel+WordSpacing.h"
+#import "ConfigHeader.h"
+#import "NSArray+ErrorHandle.h"
 @interface ShowNumberView ()
 /// 这个label 翻转会有问题
 @property (weak, nonatomic) IBOutlet UILabel *NumberL;
 
 @property (nonatomic, strong)UILabel *mirrorLabel;
 
+@property (nonatomic,strong) SNTimer *gcdTimer;
 
+@property (nonatomic, strong)NSMutableArray *labeArr;
+
+@property (nonatomic, assign)NSInteger currentIndex;
 
 @end
 
@@ -33,6 +41,137 @@
 }
 
 
+-(void)setIsMirror:(BOOL)isMirror {
+    
+    _isMirror = isMirror;
+}
+
+
+-(void)setDataArr:(NSArray *)dataArr {
+    _dataArr = dataArr;
+    
+    self.labeArr = [[NSMutableArray alloc]init];
+    
+    for (UIView *sub in self.NumberL.subviews) {
+        [sub removeFromSuperview];
+    }
+    
+    
+    for (int i=0; i<_dataArr.count; i++) {
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:self.NumberL.bounds];
+        
+        
+        [label setText:[_dataArr objectAtIndexVerify:i] withWordSpacing:30.0];
+        [self.NumberL addSubview:label];
+        
+        
+        if (self.isMirror) {
+            
+            [self ceshi:YES withView:label];
+        }
+        
+        if (i==0) {
+            label.hidden = NO;
+            
+        }else{
+            
+            label.hidden = YES;
+        }
+        [self.labeArr addObject:label];
+    }
+    
+    
+    
+    
+}
+
+
+/// 开始显示  设置时间
+- (void)showWithSpace:(float)space andAnmintTime:(float)time {
+    
+//    self.labeArr = [[NSMutableArray alloc]init];
+//
+//    for (UIView *sub in self.NumberL.subviews) {
+//        [sub removeFromSuperview];
+//    }
+//
+//
+//    for (int i=0; i<20; i++) {
+//
+//        UILabel *label = [[UILabel alloc]initWithFrame:self.NumberL.bounds];
+//        label.tag = 1000+(i%2);
+//
+//        [label setText:[NSString stringWithFormat:@"123%d",i] withWordSpacing:30.0];
+//        [self.NumberL addSubview:label];
+//
+//
+//
+//        if (i==0) {
+//            label.hidden = NO;
+//            [self ceshi:YES withView:label];
+//        }else{
+//
+//            label.hidden = YES;
+//        }
+//        [self.labeArr addObject:label];
+//    }
+    
+    
+    
+    [NSThread sleepForTimeInterval:space];
+    
+ 
+    [_gcdTimer invalidate];
+    
+    @weakify(self)
+    _gcdTimer = [SNTimer repeatingTimerWithTimeInterval:space block:^{
+        @strongify(self)
+        [self updateUI];
+    }];
+    
+    self.currentIndex = 0;
+    [_gcdTimer fire];
+    
+    
+    
+}
+
+
+-(void)updateUI {
+    
+    
+    
+    
+    UILabel *oldLabel = [self.labeArr objectAtIndexVerify:self.currentIndex];
+    oldLabel.hidden = YES;
+    [oldLabel removeFromSuperview];
+    
+    self.currentIndex++;
+    
+    UILabel *label = [self.labeArr objectAtIndexVerify:self.currentIndex];
+    label.hidden = NO;
+//    [self ceshi:label.tag ==1000 withView:label];
+    
+    
+    
+    
+    if(_currentIndex == self.labeArr.count ){
+        [_gcdTimer invalidate];
+        self.showEndBlock ? self.showEndBlock() : nil;
+    }
+    
+    
+  
+    
+    
+    
+    
+}
+
+
+
+
 /// type 1白色  2黄色
 -(void)setText:(NSString *)text andColor:(NSInteger )type {
     
@@ -46,7 +185,7 @@
     
     
      [self.mirrorLabel setText:text withWordSpacing:50.0];
-    [self ceshi: type == 2 withView:self.mirrorLabel];
+//    [self ceshi: type == 2 withView:self.mirrorLabel];
    
 }
 
