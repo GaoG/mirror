@@ -14,7 +14,7 @@
 #import "NSArray+ErrorHandle.h"
 @interface ShowNumberView ()
 /// 这个label 翻转会有问题
-@property (weak, nonatomic) IBOutlet UILabel *NumberL;
+
 
 @property (nonatomic, strong)UILabel *mirrorLabel;
 
@@ -35,15 +35,46 @@
     
 //    [self.NumberL setText:@"123" withWordSpacing:50.0];
     
-    
-    
-    
+
 }
 
 
 -(void)setIsMirror:(BOOL)isMirror {
     
     _isMirror = isMirror;
+}
+
+
+
+-(void)showText:(NSString *)text {
+    
+    
+    self.NumberL.text = text;
+    
+    
+    
+    return;
+    
+    
+    
+    for (UIView *sub in self.NumberL.subviews) {
+        [sub removeFromSuperview];
+    }
+    
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:self.NumberL.bounds];
+    
+    label.font = [UIFont systemFontOfSize:110];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = 1;
+    label.text = text;
+//    [label setText:text withWordSpacing:20.0];
+    
+    [self.NumberL addSubview:label];
+    
+    [self ceshi:self.isMirror withView:label];
+    
+    
 }
 
 
@@ -62,7 +93,7 @@
         UILabel *label = [[UILabel alloc]initWithFrame:self.NumberL.bounds];
         
         
-        [label setText:[_dataArr objectAtIndexVerify:i] withWordSpacing:30.0];
+        [label setText:[_dataArr objectAtIndexVerify:i] withWordSpacing:20.0];
         [self.NumberL addSubview:label];
         
         
@@ -81,9 +112,7 @@
         [self.labeArr addObject:label];
     }
     
-    
-    
-    
+
 }
 
 

@@ -91,11 +91,21 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h27-zZ-cFK">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h27-zZ-cFK">
                             <rect key="frame" x="557" y="10" width="50" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="2Sl-FC-7na"/>
                                 <constraint firstAttribute="width" constant="50" id="etD-xf-bhx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="80"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40A-Ap-IhV">
+                            <rect key="frame" x="727" y="15" width="70" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="70" id="TC8-uE-vMH"/>
+                                <constraint firstAttribute="width" constant="70" id="nHQ-DM-i7o"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="80"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,6 +121,8 @@
                         <constraint firstItem="NM4-s9-JLg" firstAttribute="centerY" secondItem="VuM-Cs-2dE" secondAttribute="centerY" id="Ca3-ma-yIm"/>
                         <constraint firstItem="DPs-NP-tSs" firstAttribute="centerX" secondItem="VuM-Cs-2dE" secondAttribute="centerX" constant="-30" id="Czm-i9-IvF"/>
                         <constraint firstItem="7F8-k7-RC7" firstAttribute="centerY" secondItem="VuM-Cs-2dE" secondAttribute="centerY" id="K4j-nn-667"/>
+                        <constraint firstItem="40A-Ap-IhV" firstAttribute="leading" secondItem="7F8-k7-RC7" secondAttribute="trailing" constant="-5" id="MEx-Go-VyX"/>
+                        <constraint firstItem="40A-Ap-IhV" firstAttribute="centerY" secondItem="VuM-Cs-2dE" secondAttribute="centerY" id="NfZ-nj-rxk"/>
                         <constraint firstItem="7F8-k7-RC7" firstAttribute="leading" secondItem="NM4-s9-JLg" secondAttribute="trailing" id="Uat-e5-QHc"/>
                         <constraint firstAttribute="height" constant="100" id="XWx-WM-FjQ"/>
                         <constraint firstItem="h27-zZ-cFK" firstAttribute="leading" secondItem="ach-EV-Fpt" secondAttribute="trailing" constant="5" id="bKe-PQ-jhC"/>
@@ -124,11 +136,8 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tau-MQ-vKh">
-                    <rect key="frame" x="0.0" y="568" width="1024" height="200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="Jqs-LJ-Xef"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
                     <connections>
                         <action selector="submitButAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="o3G-lh-kdU"/>
@@ -139,6 +148,7 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Tau-MQ-vKh" secondAttribute="bottom" id="2bR-mW-2NQ"/>
                 <constraint firstItem="VuM-Cs-2dE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="6q3-ug-vEz"/>
+                <constraint firstItem="Tau-MQ-vKh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="B0h-Vo-goe"/>
                 <constraint firstItem="ypj-LA-PXd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ETy-PU-YdY"/>
                 <constraint firstAttribute="trailing" secondItem="ypj-LA-PXd" secondAttribute="trailing" id="MRY-Ci-Ud0"/>
                 <constraint firstItem="ypj-LA-PXd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZD6-Jp-qFl"/>
@@ -152,6 +162,7 @@
                 <outlet property="minuteL" destination="I7Z-dz-FHT" id="M8y-sK-qXh"/>
                 <outlet property="minuteR" destination="G02-Gk-nFY" id="UvN-qt-8AM"/>
                 <outlet property="msecL" destination="NM4-s9-JLg" id="FRr-ey-0x1"/>
+                <outlet property="msecNewL" destination="40A-Ap-IhV" id="cdw-6Q-cd5"/>
                 <outlet property="msecR" destination="7F8-k7-RC7" id="HNE-jS-5h1"/>
                 <outlet property="secondL" destination="DPs-NP-tSs" id="ZNO-4d-Pcl"/>
                 <outlet property="secondR" destination="ach-EV-Fpt" id="Wg7-c3-wW5"/>

@@ -22,10 +22,9 @@
                     <rect key="frame" x="120" y="240" width="784" height="288"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vX-U2-CK3">
-                    <rect key="frame" x="212" y="284" width="600" height="200"/>
+                    <rect key="frame" x="150" y="284" width="724" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="2Yu-8D-G6i"/>
-                        <constraint firstAttribute="width" constant="600" id="vgQ-Hj-CIo"/>
                     </constraints>
                     <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="80"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -38,15 +37,17 @@
                 <constraint firstItem="4up-bI-kjs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="120" id="CNC-Mb-D4q"/>
                 <constraint firstItem="4up-bI-kjs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="240" id="Cgh-xT-5O2"/>
                 <constraint firstItem="8vX-U2-CK3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="EVE-MI-O7m"/>
+                <constraint firstItem="8vX-U2-CK3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="150" id="LnX-1t-ap7"/>
                 <constraint firstAttribute="trailing" secondItem="hFV-sG-IiN" secondAttribute="trailing" id="MY6-Fi-fgq"/>
                 <constraint firstAttribute="trailing" secondItem="4up-bI-kjs" secondAttribute="trailing" constant="120" id="Pgi-SZ-sjp"/>
                 <constraint firstItem="8vX-U2-CK3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Vix-eo-Kiy"/>
                 <constraint firstAttribute="bottom" secondItem="4up-bI-kjs" secondAttribute="bottom" constant="240" id="cSY-Nl-IOw"/>
+                <constraint firstAttribute="trailing" secondItem="8vX-U2-CK3" secondAttribute="trailing" constant="150" id="jNp-V6-kID"/>
                 <constraint firstItem="hFV-sG-IiN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jbq-n3-ddk"/>
                 <constraint firstAttribute="bottom" secondItem="hFV-sG-IiN" secondAttribute="bottom" id="wei-14-ZkM"/>
             </constraints>
             <connections>
-                <outlet property="NumberL" destination="8vX-U2-CK3" id="c9W-h6-7mk"/>
+                <outlet property="NumberL" destination="8vX-U2-CK3" id="w4G-yG-Ded"/>
             </connections>
             <point key="canvasLocation" x="19.921875" y="62.5"/>
         </view>

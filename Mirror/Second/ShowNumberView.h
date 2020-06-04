@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ShowNumberView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *NumberL;
 
 /// type 1白色  2黄色
 -(void)setText:(NSString *)text andColor:(NSInteger )type;
@@ -22,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 显示结束 block
 @property (nonatomic, copy)void (^showEndBlock) (void);
+
+
+-(void)showText:(NSString *)text;
 
 
 /// 开始显示  设置时间

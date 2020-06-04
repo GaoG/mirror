@@ -38,7 +38,7 @@
 
 -(void)setText:(NSString *)text withWordSpacing:(float)spacing {
     
-    self.font = [UIFont boldSystemFontOfSize:100];
+    self.font = [UIFont boldSystemFontOfSize:110];
     
     self.textAlignment = 1;
     if (!text) {
